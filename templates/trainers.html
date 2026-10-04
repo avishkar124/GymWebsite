@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trainers | FitZone Gym</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #080808;
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        span {
+            color: #ff4500;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+
+        /* BANNER */
+
+        .banner {
+            background-color: #1b1b1b;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+
+        /* TRAINERS */
+
+        .trainers {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #ff4500;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+        }
+
+
+        /* TRAINER CARDS */
+
+        .trainer-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .trainer-card {
+            width: 31%;
+            background-color: #1c1c1c;
+            padding: 40px 30px;
+            text-align: center;
+
+            border-bottom: 3px solid #ff4500;
+        }
+
+        .trainer-card:hover {
+            background-color: #252525;
+        }
+
+        .trainer-image {
+            width: 130px;
+            height: 130px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background-color: #292929;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 60px;
+
+            border: 3px solid #ff4500;
+        }
+
+        .trainer-card h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .trainer-card h4 {
+            color: #ff4500;
+            margin-bottom: 18px;
+        }
+
+        .trainer-card p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+
+        /* EXPERIENCE */
+
+        .experience {
+            margin-top: 20px;
+            padding-top: 18px;
+
+            border-top: 1px solid #333;
+
+            color: #ddd;
+            font-size: 14px;
+        }
+
+
+        /* MOTIVATION SECTION */
+
+        .motivation {
+            background-color: #1b1b1b;
+
+            padding: 70px 20px;
+
+            text-align: center;
+        }
+
+        .motivation h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .motivation p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            background-color: #ff4500;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #d93b00;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #080808;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+
+        /* TABLET */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .trainer-container {
+                flex-wrap: wrap;
+            }
+
+            .trainer-card {
+                width: 45%;
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .banner h1 {
+                font-size: 36px;
+            }
+
+            .trainer-container {
+                display: block;
+            }
+
+            .trainer-card {
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <nav>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'programs' %}">
+                Programs
+            </a>
+
+            <a href="{% url 'trainers' %}">
+                Trainers
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+            <a href="{% url 'member_list' %}">Members</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- PAGE BANNER -->
+
+    <section class="banner">
+
+        <h1>
+            MEET OUR <span>TRAINERS</span>
+        </h1>
+
+        <p>
+            Professional guidance to help you train better,
+            stronger and smarter.
+        </p>
+
+    </section>
+
+
+
+    <!-- TRAINERS SECTION -->
+
+    <section class="trainers">
+
+        <div class="section-title">
+
+            <p>
+                OUR FITNESS TEAM
+            </p>
+
+            <h2>
+                TRAIN WITH THE <span>BEST</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="trainer-container">
+
+
+            <!-- TRAINER 1 -->
+
+            <div class="trainer-card">
+
+                <div class="trainer-image">
+                    🏋️
+                </div>
+
+                <h3>
+                    Rahul Sharma
+                </h3>
+
+                <h4>
+                    Strength Coach
+                </h4>
+
+                <p>
+                    Rahul specializes in strength training,
+                    muscle building and improving overall
+                    physical performance.
+                </p>
+
+                <div class="experience">
+                    5+ Years Experience
+                </div>
+
+            </div>
+
+
+
+            <!-- TRAINER 2 -->
+
+            <div class="trainer-card">
+
+                <div class="trainer-image">
+                    💪
+                </div>
+
+                <h3>
+                    Arjun Patil
+                </h3>
+
+                <h4>
+                    Fitness Trainer
+                </h4>
+
+                <p>
+                    Arjun helps members improve endurance,
+                    cardiovascular fitness and achieve
+                    their fitness goals.
+                </p>
+
+                <div class="experience">
+                    4+ Years Experience
+                </div>
+
+            </div>
+
+
+
+            <!-- TRAINER 3 -->
+
+            <div class="trainer-card">
+
+                <div class="trainer-image">
+                    🧘
+                </div>
+
+                <h3>
+                    Neha Kulkarni
+                </h3>
+
+                <h4>
+                    Yoga Trainer
+                </h4>
+
+                <p>
+                    Neha focuses on yoga, flexibility,
+                    mobility and helping members develop
+                    a balanced fitness routine.
+                </p>
+
+                <div class="experience">
+                    6+ Years Experience
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MOTIVATION -->
+
+    <section class="motivation">
+
+        <h2>
+            YOUR GOAL. <span>OUR GUIDANCE.</span>
+        </h2>
+
+        <p>
+            Our trainers are here to help you every step of the way.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn">
+            START TRAINING
+        </a>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            FIT<span>ZONE</span>
+        </h2>
+
+        <p>
+            © 2026 FitZone Gym | Django Project
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

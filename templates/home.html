@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone Gym | Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #080808;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span,
+        h1 span,
+        h2 span {
+            color: #ff4500;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 580px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+
+            background: linear-gradient(90deg,
+                    #080808,
+                    #242424);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-small {
+            color: #ff4500;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff4500;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #d93b00;
+        }
+
+        /* ABOUT */
+
+        .about {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-small {
+            color: #ff4500;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .feature {
+            width: 30%;
+            background-color: #1c1c1c;
+            padding: 35px 25px;
+            border-bottom: 3px solid #ff4500;
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .feature p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* JOIN SECTION */
+
+        .join {
+            background-color: #1b1b1b;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .join h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .join p {
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'programs' %}">Programs</a>
+            <a href="{% url 'trainers' %}">Trainers</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'member_list' %}">Members</a>  
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                WELCOME TO FITZONE
+            </p>
+
+            <h1>
+                BUILD YOUR<br>
+                <span>BEST BODY</span>
+            </h1>
+
+            <p class="hero-text">
+                Push your limits, become stronger and achieve
+                your fitness goals with professional training
+                at FitZone Gym.
+            </p>
+
+            <a href="{% url 'programs' %}" class="btn">
+                EXPLORE PROGRAMS
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about">
+
+        <p class="section-small">
+            WHY CHOOSE US
+        </p>
+
+        <h2>
+            TRAIN HARD. <span>STAY STRONG.</span>
+        </h2>
+
+        <p class="about-text">
+            FitZone is a modern fitness center designed for people
+            who want to improve their strength, fitness and overall
+            health. We provide different training programs and
+            professional guidance to help you achieve your goals.
+        </p>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">🏋️</div>
+
+                <h3>Modern Equipment</h3>
+
+                <p>
+                    Train with quality gym equipment designed
+                    for strength and fitness workouts.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">💪</div>
+
+                <h3>Expert Trainers</h3>
+
+                <p>
+                    Get proper guidance from experienced
+                    trainers throughout your fitness journey.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🔥</div>
+
+                <h3>Effective Workouts</h3>
+
+                <p>
+                    Choose from strength, cardio, weight loss
+                    and functional training programs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOIN SECTION -->
+
+    <section class="join">
+
+        <h2>
+            READY TO <span>GET STARTED?</span>
+        </h2>
+
+        <p>
+            Your fitness journey starts today.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn">
+            JOIN NOW
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            FIT<span>ZONE</span>
+        </h2>
+
+        <p>
+            © 2026 FitZone Gym | Django Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

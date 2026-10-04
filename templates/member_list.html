@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Members | FitZone Gym</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        span {
+            color: #ff4500;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #080808;
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+
+        /* BANNER */
+
+        .banner {
+            background-color: #1b1b1b;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #aaa;
+        }
+
+
+        /* MEMBER SECTION */
+
+        .member-section {
+            padding: 60px 8%;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+        .top-bar h2 {
+            font-size: 30px;
+        }
+
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-block;
+
+            background-color: #ff4500;
+            color: white;
+
+            padding: 12px 20px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #d93b00;
+        }
+
+
+        /* TABLE */
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1c1c1c;
+        }
+
+        th {
+            background-color: #ff4500;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            color: #ddd;
+        }
+
+        tr:hover {
+            background-color: #252525;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #080808;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+        }
+        .edit-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.edit-btn {
+    background-color: #ff8c00;
+}
+
+.delete-btn {
+    background-color: #d63031;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    opacity: 0.8;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <nav>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'programs' %}">
+                Programs
+            </a>
+
+            <a href="{% url 'trainers' %}">
+                Trainers
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+
+            <a href="{% url 'member_list' %}">
+                Members
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <h1>
+            GYM <span>MEMBERS</span>
+        </h1>
+
+        <p>
+            View and manage registered FitZone members
+        </p>
+
+    </section>
+
+
+    <!-- MEMBER LIST -->
+
+    <section class="member-section">
+
+        <div class="top-bar">
+
+            <h2>
+                Registered Members
+            </h2>
+
+            <a href="{% url 'add_member' %}" class="btn">
+                + ADD MEMBER
+            </a>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Program</th>
+                    <th>Actions</th>
+                </tr>
+
+
+                {% for member in members %}
+
+                <tr>
+
+                    <td>
+                        {{ member.id }}
+                    </td>
+
+                    <td>
+                        {{ member.name }}
+                    </td>
+
+                    <td>
+                        {{ member.email }}
+                    </td>
+
+                    <td>
+                        {{ member.phone }}
+                    </td>
+
+                    <td>
+                        {{ member.age }}
+                    </td>
+
+                    <td>
+                        {{ member.program }}
+                    </td>
+                    <td>
+                    
+                        <a href="{% url 'update_member' member.id %}" class="edit-btn">
+                            Edit
+                        </a>
+                    
+                        <a href="{% url 'delete_member' member.id %}" class="delete-btn">
+                            Delete
+                        </a>               
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="7" class="empty">
+                        No members registered yet.
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 FitZone Gym 
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

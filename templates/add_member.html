@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member | FitZone Gym</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        span {
+            color: #ff4500;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #080808;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        /* BANNER */
+
+        .banner {
+            background-color: #1b1b1b;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #aaa;
+        }
+
+        /* FORM SECTION */
+
+        .form-section {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-box {
+            width: 550px;
+            background-color: #1c1c1c;
+            padding: 40px;
+            border-top: 4px solid #ff4500;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+
+            background-color: #292929;
+            color: white;
+
+            border: 1px solid #444;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #ff4500;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+
+            background-color: #ff4500;
+            color: white;
+
+            border: none;
+            cursor: pointer;
+
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #d93b00;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .form-box {
+                width: 100%;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'programs' %}">Programs</a>
+            <a href="{% url 'trainers' %}">Trainers</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <section class="banner">
+
+        <h1>ADD <span>MEMBER</span></h1>
+
+        <p>
+            Register a new member at FitZone Gym
+        </p>
+
+    </section>
+
+
+    <section class="form-section">
+
+        <div class="form-box">
+
+            <h2>Member Registration</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label>Member Name</label>
+
+                <input type="text" name="name" placeholder="Enter member name" required>
+
+
+                <label>Email Address</label>
+
+                <input type="email" name="email" placeholder="Enter email address" required>
+
+
+                <label>Phone Number</label>
+
+                <input type="text" name="phone" placeholder="Enter phone number" required>
+
+
+                <label>Age</label>
+
+                <input type="number" name="age" placeholder="Enter age" required>
+
+
+                <label>Fitness Program</label>
+
+                <select name="program" required>
+
+                    <option value="">
+                        Select Program
+                    </option>
+
+                    <option value="Strength Training">
+                        Strength Training
+                    </option>
+
+                    <option value="Cardio Training">
+                        Cardio Training
+                    </option>
+
+                    <option value="Fat Loss">
+                        Fat Loss
+                    </option>
+
+                    <option value="Functional Training">
+                        Functional Training
+                    </option>
+
+                    <option value="Yoga & Flexibility">
+                        Yoga & Flexibility
+                    </option>
+
+                    <option value="HIIT Workout">
+                        HIIT Workout
+                    </option>
+
+                </select>
+
+
+                <button type="submit" class="btn">
+                    ADD MEMBER
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 FitZone Gym | Django CRUD Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

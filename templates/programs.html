@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | FitZone Gym</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #080808;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        span {
+            color: #ff4500;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        nav a:hover {
+            color: #ff4500;
+        }
+
+        /* PAGE BANNER */
+
+        .banner {
+            background-color: #1b1b1b;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+        /* PROGRAM SECTION */
+
+        .programs {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #ff4500;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+        }
+
+        /* PROGRAM CARDS */
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .program-card {
+            background-color: #1c1c1c;
+            padding: 35px 30px;
+            border-bottom: 3px solid #ff4500;
+        }
+
+        .program-card:hover {
+            background-color: #252525;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .program-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .program-card p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .program-card h4 {
+            color: #ff4500;
+        }
+
+        /* JOIN */
+
+        .join {
+            text-align: center;
+            background-color: #1b1b1b;
+            padding: 65px 20px;
+        }
+
+        .join h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .join p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff4500;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 35px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'programs' %}">Programs</a>
+            <a href="{% url 'trainers' %}">Trainers</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'member_list' %}">Members</a>
+        </nav>
+
+    </header>
+
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <h1>OUR <span>PROGRAMS</span></h1>
+
+        <p>
+            Choose the right workout and start working towards
+            your fitness goals.
+        </p>
+
+    </section>
+
+
+    <!-- PROGRAMS -->
+
+    <section class="programs">
+
+        <div class="section-title">
+
+            <p>TRAIN WITH US</p>
+
+            <h2>
+                FIND YOUR <span>WORKOUT</span>
+            </h2>
+
+        </div>
+
+
+        <div class="program-grid">
+
+            <div class="program-card">
+
+                <div class="icon">🏋️</div>
+
+                <h3>Strength Training</h3>
+
+                <p>
+                    Build muscle and increase strength using
+                    structured weight training exercises.
+                </p>
+
+                <h4>60 Minutes</h4>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="icon">🏃</div>
+
+                <h3>Cardio Training</h3>
+
+                <p>
+                    Improve stamina and cardiovascular fitness
+                    through effective cardio workouts.
+                </p>
+
+                <h4>45 Minutes</h4>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="icon">🔥</div>
+
+                <h3>Fat Loss</h3>
+
+                <p>
+                    Combine strength and cardio exercises to
+                    support your fitness and fat-loss goals.
+                </p>
+
+                <h4>60 Minutes</h4>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="icon">🤸</div>
+
+                <h3>Functional Training</h3>
+
+                <p>
+                    Improve balance, mobility and overall
+                    body movement with functional exercises.
+                </p>
+
+                <h4>50 Minutes</h4>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="icon">🧘</div>
+
+                <h3>Yoga & Flexibility</h3>
+
+                <p>
+                    Improve flexibility and relaxation through
+                    guided stretching and yoga sessions.
+                </p>
+
+                <h4>45 Minutes</h4>
+
+            </div>
+
+
+            <div class="program-card">
+
+                <div class="icon">⚡</div>
+
+                <h3>HIIT Workout</h3>
+
+                <p>
+                    High-intensity workouts designed to challenge
+                    your entire body in a short session.
+                </p>
+
+                <h4>30 Minutes</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOIN -->
+
+    <section class="join">
+
+        <h2>
+            FIND YOUR <span>STRENGTH</span>
+        </h2>
+
+        <p>
+            Start training with FitZone today.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn">
+            JOIN NOW
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            FIT<span>ZONE</span>
+        </h2>
+
+        <p>
+            © 2026 FitZone Gym | Django Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
